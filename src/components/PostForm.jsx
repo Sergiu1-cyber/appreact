@@ -20,7 +20,7 @@ const PostForm = ({create}) => {
   }
 
   return (
-    <form>
+    <form style={{marginTop: '30px'}}>
     
       <MyInput 
         value={post.title} 
@@ -34,7 +34,7 @@ const PostForm = ({create}) => {
         type='text' 
         placesholder='body' />
         
-      <MyButton onClick={addPost} >Exped</MyButton>
+      <MyButton onClick={addPost} >Creez</MyButton>
       </form>
     )
 }
