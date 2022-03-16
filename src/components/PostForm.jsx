@@ -9,14 +9,14 @@ const PostForm = ({create}) => {
     
   function addPost(e) {
     e.preventDefault()
-    
-    const newPost = {
-      ...post,
-      id: Date.now()
-    }
-    create(newPost)
-    
-    setPost({title: '', body: ''})
+    if (post.title !== '' && post.body !== '') {
+      const newPost = {
+        ...post,
+        id: Date.now()
+        }
+      create(newPost)
+      setPost({title: '', body: ''})
+      }
   }
 
   return (
@@ -26,13 +26,13 @@ const PostForm = ({create}) => {
         value={post.title} 
         onChange={e => setPost({...post, title: e.target.value})} 
         type='text' 
-        placesholder='title' />
+        placeholder='title' />
         
       <MyInput 
         value={post.body} 
         onChange={e => setPost({...post, body: e.target.value})} 
         type='text' 
-        placesholder='body' />
+        placeholder='body' />
         
       <MyButton onClick={addPost} >Creez</MyButton>
       </form>
